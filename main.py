@@ -8,7 +8,7 @@ import os
 from PyQt6 import uic
 from PyQt6.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QMessageBox, QFileDialog
 
-
+# https://github.com/ponkinalisa/Project_Pilotag.git
 class ChangeData(QMainWindow):
     def __init__(self):
         self.path = ''
