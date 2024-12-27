@@ -76,9 +76,8 @@ class ChangeData(QMainWindow):
             id = int(ex.label_id.text()[4:])
             con = sqlite3.connect('data.sqlite')
             cur = con.cursor()
-            print(
-                f"""UPDATE owners SET fio = '{self.owner_edit.text()}', adres = '{self.adres_edit.text()}', WHERE animal_id = {id}""")
-            cur.execute(f"""UPDATE owners SET fio = '{self.owner_edit.text()}', adres = '{self.adres_edit.text()}' WHERE animal_id = {id}""")
+            cur.execute(f"""UPDATE owners SET fio = '{self.owner_edit.text()}', adres = '{self.adres_edit.text()}' 
+            WHERE animal_id = {id}""")
 
             ow_id = cur.execute(f"""SELECT id FROM owners WHERE animal_id = {id}""").fetchone()[0]
             cur.execute(f"""UPDATE animals 
@@ -110,7 +109,6 @@ class ChangeData(QMainWindow):
 
     def photo(self):
         self.path = QFileDialog.getOpenFileName(self, 'Выбрать картинку', '')[0]
-        print(self.path)
 
 
 class Illnesses(QMainWindow):
@@ -126,7 +124,6 @@ class Illnesses(QMainWindow):
             return True
         except Exception:
             return False
-
 
     def append(self):
         try:
@@ -165,8 +162,8 @@ class Illnesses(QMainWindow):
             QMessageBox.information(self, '', 'Запись добавлена! Поздравляем!', buttons=QMessageBox.StandardButton.Ok)
             self.close()
         except Exception as e:
-            print('%s' % e)
             QMessageBox.warning(self, '', '%s' % e, buttons=QMessageBox.StandardButton.Ok)
+
 
 class Illnesses22(QMainWindow):
     def __init__(self):
@@ -181,7 +178,6 @@ class Illnesses22(QMainWindow):
             return True
         except Exception:
             return False
-
 
     def append(self):
         try:
@@ -227,7 +223,6 @@ class Illnesses22(QMainWindow):
             ex.getting_data()
             self.close()
         except Exception as e:
-            print('%s' % e)
             QMessageBox.warning(self, '', '%s' % e, buttons=QMessageBox.StandardButton.Ok)
 
 
@@ -280,11 +275,12 @@ class Append(QMainWindow):
             if self.adres_edit.text() == '':
                 raise ValueError('Ошибка при вводе адреса! Поле для ввода "Адрес сдавшего" является обязательным')
             if self.birthday_edit.text() == '':
-                cur.execute(f"""INSERT INTO animals(name, gender, type, birthday, registration_date, allergies, path, status, weigth, description) 
-                            VALUES('{self.name_edit.text().lower()}', (SELECT id FROM genders WHERE name = 
-                            '{self.gender_edit.currentText()}'), (SELECT id FROM Types WHERE name = '{self.type_edit.currentText()}'), 
-                            NULL, '{date}', '{self.allergies_edit.text()}', '{self.path}', 
-                            (SELECT id FROM status WHERE name = '{self.status_edit.currentText()}'), '{self.weight_edit.text()}', '{self.description_edit.text()}')""")
+                cur.execute(f"""INSERT INTO animals(name, gender, type, birthday, registration_date, allergies, path, 
+                status, weigth, description) VALUES('{self.name_edit.text().lower()}', (SELECT id FROM genders WHERE 
+                name = '{self.gender_edit.currentText()}'), (SELECT id FROM Types WHERE name = 
+                '{self.type_edit.currentText()}'), NULL, '{date}', '{self.allergies_edit.text()}', '{self.path}', 
+                (SELECT id FROM status WHERE name = '{self.status_edit.currentText()}'), '{self.weight_edit.text()}', 
+                '{self.description_edit.text()}')""")
                 con.commit()
                 con.close()
                 self.app_ill()
@@ -313,11 +309,13 @@ class Append(QMainWindow):
             elif year1 >= year and month1 >= month and day1 > day:
                 raise ValueError('Ошибка при вводе даты! Животное не может родиться позднее, чем быть '
                                  'зарегестрированным')
-            cur.execute(f"""INSERT INTO animals(name, gender, type, birthday, registration_date, allergies, path, status, weigth, description) 
+            cur.execute(f"""INSERT INTO animals(name, gender, type, birthday, registration_date, allergies, path, 
+            status, weigth, description) 
             VALUES('{self.name_edit.text().lower()}', (SELECT id FROM genders WHERE name = 
             '{self.gender_edit.currentText()}'), (SELECT id FROM Types WHERE name = '{self.type_edit.currentText()}'), 
             '{self.birthday_edit.text()}', '{date}', '{self.allergies_edit.text()}', '{self.path}', 
-            (SELECT id FROM status WHERE name = '{self.status_edit.currentText()}'), '{self.weight_edit.text()}', '{self.description_edit.text()}')""")
+            (SELECT id FROM status WHERE name = '{self.status_edit.currentText()}'), '{self.weight_edit.text()}', 
+            '{self.description_edit.text()}')""")
             QMessageBox.information(self, '', 'запись добавлена! Поздравляем!', buttons=QMessageBox.StandardButton.Ok)
             con.commit()
             con.close()
@@ -326,16 +324,13 @@ class Append(QMainWindow):
         except Exception as e:
             QMessageBox.warning(self, '', '%s' % e, buttons=QMessageBox.StandardButton.Ok)
 
-
     def app_ill(self):
         con = sqlite3.connect('data.sqlite')
         cur = con.cursor()
         id = cur.execute(f"""SELECT MAX(id) FROM animals""").fetchone()
         id = id[0]
-        print(0)
         cur.execute(f"""INSERT INTO owners(animal_id, FIO, adres) VALUES({id}, '{self.owner_edit.text()}', 
         '{self.adres_edit.text()}')""")
-        print(0)
         for i in range(self.tableWidget.rowCount()):
             cur.execute(f"""INSERT INTO history(animal_id, date, doctor_fio, description) VALUES({id}, 
                         '{self.tableWidget.item(i, 0).text()}', '{self.tableWidget.item(i, 1).text()}', 
@@ -344,7 +339,6 @@ class Append(QMainWindow):
         cur.execute(f"""UPDATE animals SET owner_id = {ow_id} WHERE id = {id}""")
         con.commit()
         con.close()
-
 
     def illnesses(self):
         try:
@@ -357,7 +351,6 @@ class Append(QMainWindow):
     def photo(self):
         self.path = QFileDialog.getOpenFileName(self, 'Выбрать картинку', '')[0]
         QMessageBox.information(self, '', 'Фото добавлено! Поздравляем!', buttons=QMessageBox.StandardButton.Ok)
-
 
 
 class Project(QMainWindow):
@@ -392,8 +385,16 @@ class Project(QMainWindow):
         self.delete_illness.clicked.connect(self.del_ill)
         self.save_for_printing.clicked.connect(self.save_for_print)
         self.get_photo.clicked.connect(self.photo)
+        self.search.textEdited.connect(self.update1)
+        self.search_2.textEdited.connect(self.update2)
 
         self.download()
+
+    def update1(self):
+        self.search_2.setText('')
+
+    def update2(self):
+        self.search.setText('')
 
     def download(self):
         try:
@@ -407,14 +408,25 @@ class Project(QMainWindow):
             names = [i[1] for i in cur.execute("""SELECT * FROM owners""")]
             owner = [i[0] for i in cur.execute("""SELECT * FROM owners""")]
             text = self.combo_sorting.currentText()
-            if text == 'Все' and self.search.text() == '':
+            if text == 'Все' and self.search.text() == '' and self.search_2.text() == '':
                 data = cur.execute("""SELECT * FROM animals""")
             elif text == 'Все' and self.search.text() != '':
                 data = cur.execute(f"""SELECT * FROM animals WHERE name = '{self.search.text().lower()}'""").fetchall()
+            elif text == 'Все' and self.search_2.text() != '':
+                e = cur.execute(f"""SELECT FIO, animal_id FROM owners""").fetchall()
+                for row in e:
+                    if row[0].lower() == self.search_2.text().lower():
+                        data = cur.execute(f"""SELECT * FROM animals WHERE id = {row[1]}""").fetchall()
             elif self.search.text() != '':
                 data = cur.execute(
                     f"""SELECT * FROM animals WHERE type =(SELECT id FROM Types WHERE name = '{text.lower()}') AND 
                     name = '{self.search.text().lower()}'""").fetchall()
+            elif self.search_2.text() != '':
+                e = cur.execute(f"""SELECT FIO, animal_id FROM owners""").fetchall()
+                for row in e:
+                    if row[0].lower() == self.search_2.text().lower():
+                        data = cur.execute(f"""SELECT * FROM animals WHERE id = {row[1]} AND type =(SELECT id FROM 
+                        Types WHERE name = '{text.lower()}')""").fetchall()
             else:
                 data = cur.execute(f"""SELECT * FROM animals WHERE type =(SELECT id FROM Types WHERE name = 
                 '{text.lower()}')""").fetchall()
@@ -460,6 +472,13 @@ class Project(QMainWindow):
                 if self.search.text() != '':
                     data = cur.execute(f"""SELECT * FROM animals WHERE type =(SELECT id FROM Types WHERE name = 
                     '{text.lower()}') AND name = '{self.search.text().lower()}'""").fetchall()
+                elif self.search_2.text() != '':
+                    e = cur.execute(f"""SELECT FIO, animal_id FROM owners""").fetchall()
+                    for row in e:
+                        if row[0].lower() == self.search_2.text().lower():
+                            data = cur.execute(
+                                f"""SELECT * FROM animals WHERE id = {row[1]} AND type =(SELECT id FROM Types WHERE 
+                                name = '{text.lower()}')""").fetchall()
                 else:
                     data = cur.execute(f"""SELECT * FROM animals WHERE type =(SELECT id FROM Types WHERE name = 
                     '{text.lower()}')""").fetchall()
@@ -557,7 +576,6 @@ class Project(QMainWindow):
             self.description.setText(f'Особые приметы: {desc}')
             self.owner_2.setText(f'Адрес сдавшего: {adres}')
 
-
             self.tableWidget_2.setColumnCount(3)
             self.tableWidget_2.setHorizontalHeaderLabels(['Дата', 'Принимающий\n врач\n ФИО', 'Описание'])
             self.tableWidget_2.setRowCount(0)
@@ -628,7 +646,6 @@ class Project(QMainWindow):
         minute = str(date.minute)
         second = str(date.second)
         date = ''.join([year, month, day, hour, minute, second])
-        print(date)
         fname = date + '.txt'
         with open(fname, 'w', encoding='UTF-8') as f:
             f.write(self.label_name.text() + '\n')

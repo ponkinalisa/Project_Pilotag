@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1312</width>
+    <width>1370</width>
     <height>827</height>
    </rect>
   </property>
@@ -20,9 +20,9 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-10</x>
       <y>0</y>
-      <width>1351</width>
+      <width>1361</width>
       <height>831</height>
      </rect>
     </property>
@@ -34,7 +34,7 @@
 font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -44,9 +44,9 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>120</y>
-        <width>891</width>
-        <height>531</height>
+        <y>150</y>
+        <width>1001</width>
+        <height>541</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -54,49 +54,11 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
 border-radius: 20px;</string>
       </property>
      </widget>
-     <widget class="QWidget" name="formLayoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>20</y>
-        <width>891</width>
-        <height>75</height>
-       </rect>
-      </property>
-      <layout class="QFormLayout" name="formLayout">
-       <item row="2" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Поиск:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="search">
-         <property name="styleSheet">
-          <string notr="true">background: rgb(255, 255, 255);</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QComboBox" name="combo_sorting">
-         <property name="styleSheet">
-          <string notr="true">background: rgb(255, 255, 255);</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Все</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QPushButton" name="get_data">
       <property name="geometry">
        <rect>
-        <x>950</x>
-        <y>140</y>
+        <x>1060</x>
+        <y>150</y>
         <width>269</width>
         <height>41</height>
        </rect>
@@ -115,8 +77,8 @@ border-radius: 5px;</string>
      <widget class="QPushButton" name="append_button">
       <property name="geometry">
        <rect>
-        <x>950</x>
-        <y>300</y>
+        <x>1060</x>
+        <y>310</y>
         <width>269</width>
         <height>41</height>
        </rect>
@@ -138,8 +100,8 @@ border-radius: 5px;</string>
      <widget class="QPushButton" name="delete_button">
       <property name="geometry">
        <rect>
-        <x>950</x>
-        <y>220</y>
+        <x>1060</x>
+        <y>230</y>
         <width>269</width>
         <height>41</height>
        </rect>
@@ -158,8 +120,8 @@ border-radius: 5px;</string>
      <widget class="QRadioButton" name="radioButton">
       <property name="geometry">
        <rect>
-        <x>950</x>
-        <y>60</y>
+        <x>1040</x>
+        <y>70</y>
         <width>301</width>
         <height>41</height>
        </rect>
@@ -175,8 +137,8 @@ border-radius: 5px;</string>
      <widget class="QPushButton" name="bownload_button">
       <property name="geometry">
        <rect>
-        <x>1020</x>
-        <y>390</y>
+        <x>1140</x>
+        <y>410</y>
         <width>141</width>
         <height>111</height>
        </rect>
@@ -191,6 +153,65 @@ border-radius: 5px;</string>
       <property name="text">
        <string>Загрузить</string>
       </property>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>10</y>
+        <width>981</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="search_2">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Поиск по ФИО сдавшего:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="search">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Поиск по имени животного:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Сортировать по виду животного:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="combo_sorting">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Все</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
@@ -338,9 +359,9 @@ border-radius: 5px;</string>
      <widget class="QWidget" name="verticalLayoutWidget_2">
       <property name="geometry">
        <rect>
-        <x>590</x>
+        <x>640</x>
         <y>30</y>
-        <width>591</width>
+        <width>621</width>
         <height>481</height>
        </rect>
       </property>
@@ -389,7 +410,7 @@ border-radius: 5px;</string>
      <widget class="QPushButton" name="add_illness">
       <property name="geometry">
        <rect>
-        <x>650</x>
+        <x>680</x>
         <y>540</y>
         <width>221</width>
         <height>23</height>
@@ -408,7 +429,7 @@ border-radius: 5px;</string>
      <widget class="QPushButton" name="delete_illness">
       <property name="geometry">
        <rect>
-        <x>910</x>
+        <x>970</x>
         <y>540</y>
         <width>221</width>
         <height>23</height>
@@ -480,7 +501,7 @@ border-radius: 5px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1312</width>
+     <width>1370</width>
      <height>26</height>
     </rect>
    </property>
