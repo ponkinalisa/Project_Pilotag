@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1312</width>
+    <height>827</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(219, 249, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1351</width>
+      <height>831</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">backgroung: rgb(255, 255, 127);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Главная страница</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>120</y>
+        <width>891</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255);
+border-radius: 20px;</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="formLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>891</width>
+        <height>75</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="2" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Поиск:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="search">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QComboBox" name="combo_sorting">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Все</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="get_data">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>140</y>
+        <width>269</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255);
+border-radius: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Получить данные</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="append_button">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>300</y>
+        <width>269</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255);
+border-radius: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Добавить запись</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="delete_button">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>220</y>
+        <width>269</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255);
+border-radius: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Удалить выбранные элементы</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>60</y>
+        <width>301</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255);
+border-radius: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Сортировать по дате рождения</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="bownload_button">
+      <property name="geometry">
+       <rect>
+        <x>1020</x>
+        <y>390</y>
+        <width>141</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(85, 170, 255);
+</string>
+      </property>
+      <property name="text">
+       <string>Загрузить</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Данные о животном</string>
+     </attribute>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>541</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_id">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>id: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_type">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Вид:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_gender">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Пол:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_name">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Кличка: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="status">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Статус:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_birthday">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Дата рождения: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_registration_date">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Дата регистрации:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="weigth">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Вес: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="owner">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Cдал ФИО:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="owner_2">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Адрес сдавшего:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="description">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Особые приметы:</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_allergies">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>520</y>
+        <width>539</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Аллергии: </string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>30</y>
+        <width>591</width>
+        <height>481</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);
+border-radius: 5px;</string>
+         </property>
+         <property name="text">
+          <string>История болезней:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableWidget_2">
+         <property name="styleSheet">
+          <string notr="true">background: rgb(255, 255, 255);
+border-radius: 5px;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="change_data_button">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>640</y>
+        <width>541</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255);
+border-radius: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Изменить данные</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="add_illness">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>540</y>
+        <width>221</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255)</string>
+      </property>
+      <property name="text">
+       <string>Добавить запись</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="delete_illness">
+      <property name="geometry">
+       <rect>
+        <x>910</x>
+        <y>540</y>
+        <width>221</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255)</string>
+      </property>
+      <property name="text">
+       <string>Удалить запись</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>630</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Скачать для печати:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="save_for_printing">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>630</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255)</string>
+      </property>
+      <property name="text">
+       <string>Скачать</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="get_photo">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>630</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Посмотреть фото</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1312</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
